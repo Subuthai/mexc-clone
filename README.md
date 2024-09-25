@@ -1,4 +1,4 @@
-# MEXC Clone - React & Node.js Project
+# MEXC Clone - React & Node.js Project (Reupload)
 
 This is a **MEXC cryptocurrency exchange clone** built using **React** for the frontend and **Node.js** for the backend, with **MongoDB** as the database. The project is developed for **educational purposes only** to practice full-stack development.
 
