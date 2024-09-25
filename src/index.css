@@ -1,0 +1,105 @@
+@import "antd/dist/reset.css";
+ li{
+     list-style: none;
+
+ }
+ul{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body{
+    overflow-x: hidden;
+}
+:root{
+    --text-primary: #f2f4f6;
+    --text-tertiary: #6e7583;
+    --divider-primary: #222429;
+    --primary-blue: #357aff;
+   --border-width-base: 1px;
+    --primary-base: #357aff;
+    --bg-modal: #18191c;
+    --fill-page-button-default: #222429;
+    --divider-secondary: #2b2e33;
+    --bg-secondary: #111214;
+    --primary-text: #959da4;
+    --down-red: #ff4761;
+    --border-style-base: 1px;
+    --text-secondary: #87909f;
+    --tabs-title-height-sm:40px;
+    --tabs-title-font-size-sm: 14px;
+    --bg-primary: #0d0e0f;
+    --up-rate: #0aa869;
+    --down-rate: #fe445c;
+    --bg-1:#4b4e52;
+    --text-tooltip-secondary: #505152;
+    --scrollbar-track: #35383f;
+    --fill-menu-selected:#222429;
+    --divider:#1e1f20;
+    --modal-content-bg:#fff;
+    --modal-border-radius:8px;
+    --modal-header-close-size:60px;
+    --font-size-lg:16px;
+    --modal-close-color:#87909f;
+    --bg-tertiary: #111421;
+    --title:#151617;
+    --bg-2:#edeff1;
+    --border-card:#e2e5e7
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+body{
+
+    background-color: var(--bg-secondary);
+}
+body{
+    --text-primary: #0d0e0f;
+    --bg-secondary: #f7f8fa;
+    --bg-secondary1: #f7f8fa;
+    --home-community-gradient-color:rgba(247,248,249,.85);
+    --btn-default-color:#0d0e0f;
+    --bg-modal:#fff;
+    --bg-primary:#fff;
+    --border-button:#dde0e2;
+    --bg-tertiary:#f2f4f6;
+    --fill-tab-tertiary:#f2f4f6;
+    --bg-level-primary:#f7f8fa;
+    --fill-page-button-default:#ebedf1;
+    --divider-modal-primary:#e6e9eb;
+    --border-card:#e2e5e7;
+    --divider-primary: #ebedf1;
+    --bg-primary1:#fff ;
+    --fill-card-modal:#f2f4f6;
+    --fill-sidebar-selected:#f2f4f6;
+    --tint-orange-smooth:#fcf1e8;
+    --tint-orange-base:#e27319;
+    --tint-kl-orange:#f4742c;
+}
+body.dark-mode{
+    --bg-secondary: #111214;
+    --bg-secondary1: #0d0f18;
+    --text-primary: #f2f4f6;
+    --home-community-gradient-color:rgba(13,15,24,.85);
+    --btn-default-color:#f2f4f6;
+    --divider-primary:#222429;
+    --bg-modal:#18191c;
+    --bg-primary:#0d0e0f;
+    --border-button:#2f3133;
+    --bg-tertiary:#111421;
+    --fill-tab-tertiary:#222429;
+    --bg-level-primary:#0d0e0f;
+    --fill-page-button-default:#222429;
+    --divider-modal-primary:#2f3238;
+    --border-card:#282a2c;
+    --bg-primary1:#080a11 ;
+    --title:#fff;
+    --fill-card-modal:#222429;
+    --fill-sidebar-selected:#18191c;
+    --tint-orange-smooth:#361b06;
+
+}
+

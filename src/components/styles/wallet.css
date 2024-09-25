@@ -1,0 +1,430 @@
+.wallet-container {
+    display: flex;
+    background-color: #0d0e10;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px; 
+    background-color: #0d0e10; 
+    padding: 20px;
+    flex: 0 0 auto;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #fff; 
+    margin-bottom: 20px;
+  }
+  
+  .sidebar li:hover {
+    background-color: #37383f; 
+  }
+  
+  .sidebar .active {
+    color: #4281ff;
+    background-color: #1c1d21;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .sidebar li:first-child svg {
+    color: #4281ff;
+  }
+
+  .sidebar li svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color: gray;
+  }
+
+  .titles {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 15px;
+  }
+
+  .main-content {
+    flex: 1 0 auto; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .balance-section {
+    background-color: #16171a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .balance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .balance-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .balance-title h2 {
+    margin-right: 10px;
+  }
+  
+  .balance-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .balance-amount {
+    margin: 0;
+    color: #fff; 
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .estimated-value {
+    font-size: 14px;
+    color: #6E7583
+  }
+
+  .estimated-balance {
+    font-size: 20px;
+    color: #6E7583;
+    font-weight: normal;
+  }
+
+  .spot-balance {
+  }
+  
+  .spot-balance h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px;
+  }
+  
+  .spot-balance p {
+    font-size: 14px;
+    margin: 0;
+    color: #b5b5b5;
+  }
+  
+  .balance-actions button,
+  .balance-header-actions span {
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    margin-right: 30px;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: 1px solid #4c4d52; 
+    color: #fff;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .balance-actions button:hover,
+  .balance-header-actions span:hover {
+    background-color: #37383f;
+  }
+
+  .deposit-button { 
+    border: none !important;
+    background-color: #0f1e3b !important;
+    color: #fff !important;
+  }
+
+  .deposit-button:hover {
+    background-color: #0069d9 !important;
+  }
+  
+  .deposit-button svg {
+    fill: currentColor !important;
+    pointer-events: none;
+  }
+
+  .deposit-button::after,
+  .withdraw-button::after,
+  .transfer-button::after,
+  .more-actions-button::after {
+    content: attr(data-label);
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; 
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .balance-header-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .chart-and-transactions {
+    display: flex;
+    justify-content: space-between; 
+  }
+  
+  .asset-trend-section {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .asset-trend-section,
+  .recent-transactions-section {
+    background-color: #16171a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .asset-trend-section {
+    width: 60%;
+  }
+  
+  .recent-transactions-section {
+    width: 38%;
+  }
+  
+  .asset-trend-section h3,
+  .recent-transactions-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 15px;
+  }
+  
+  .chart-container {
+    height: 200px;
+    border-radius: 5px;
+  }
+  
+  .transaction-list {
+  }
+  
+  .transaction {
+    padding: 10px;
+    border-bottom: 1px solid #4c4d52;
+  }
+  
+  .transaction p {
+    margin: 0;
+    font-size: 14px;
+    color: #b5b5b5;
+  }
+  
+  .view-all-button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: right;
+  }
+  
+  .content-sections {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chart-and-transactions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .asset-trend-section {
+    width: 60%;
+  }
+  
+  .recent-transactions-section {
+    width: 38%;
+  }
+
+  .asset-distribution-section {
+    background-color: #16171a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .asset-distribution-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 15px;
+  }
+  
+  .asset-list {
+  }
+
+.asset-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #4c4d52;
+  }
+  
+  .asset-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .asset-name {
+    flex: 1; 
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .asset-value-container {
+    display: flex;
+    justify-content: center; 
+    flex: 0 0 500px;
+  }
+  
+  .asset-value {
+    font-size: 14px;
+    color: #b5b5b5;
+  }
+  
+  .asset-percentage {
+    flex: 0 0 auto;
+    font-size: 14px;
+    color: #b5b5b5;
+    margin-left: 10px;
+  }
+  
+  .asset-actions {
+    flex: 0 0 auto;
+    margin-left: 10px;
+  }
+  
+  .proof-of-reserves {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .no-assets-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #b5b5b5;
+  }
+
+  .no-data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+  .no-data-container img {
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 10px;
+  }
+  
+  .no-data-text {
+    font-size: 14px;
+    color: #b5b5b5;
+  }
+  
+@media (max-width: 768px) {
+    .wallet-container {
+      flex-direction: column; 
+    }
+  
+    .sidebar {
+      width: 100%;
+      overflow-x: auto; 
+      white-space: nowrap; 
+    }
+  
+    .sidebar ul {
+      display: flex; 
+    }
+  
+    .sidebar li {
+      margin-right: 10px; 
+    }
+  
+    .main-content {
+      flex: 1 0 auto;
+    }
+  
+    .content-sections {
+      flex-direction: column; 
+    }
+  
+    .balance-section {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .chart-and-transactions {
+      flex-direction: column;
+    }
+  
+    .asset-trend-section, 
+    .recent-transactions-section {
+      width: 100%;
+    }
+
+    .asset-item {
+        flex-wrap: wrap;
+      }
+    
+      .asset-name,
+      .asset-value {
+        flex: 0 0 100%;
+        margin-bottom: 5px;
+      }
+    
+      .asset-percentage,
+      .asset-actions {
+        flex: 0 0 auto;
+        margin-left: 0;
+      }
+  
+  }

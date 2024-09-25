@@ -1,0 +1,69 @@
+.market-list {
+    --space-size: 24px;
+    padding: 48px 0 55px;
+    background: linear-gradient(180deg, transparent, var(--bg-secondary) 100%);
+    overflow: hidden;
+}
+
+.market-list tr > td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.trade-button:hover {
+    background-color: var(--primary-base) !important;
+    border-color: var(--primary-base) !important;
+    color: #1d1d1d !important;
+}
+
+.ant-table-tbody > tr > td {
+    background-color: var(--bg-primary1);
+    color: #555;
+}
+.antd-custom-wrapper tr:hover td{
+    background: #1d1d1d !important
+}
+.ant-table-wrapper .ant-table-tbody >tr >td{
+    border:none;
+}
+.ant-pagination.ant-table-pagination{
+    display: none;
+}
+.antd-custom-wrapper .ant-table-cell:before{
+    display: none;
+}
+
+.ant-table-tbody > tr > td{
+    color: var(--text-primary);
+}
+
+@media screen and (max-width: 760px){
+    .currency .hot-list_sss {
+        -webkit-margin-end: 0;
+        margin-inline-end: 0;
+        display: none;
+    }
+    .hot-list_exploreMarket__FSKIX button.section-main-btn {
+        width: 100%;
+    }
+    .antd-custom-wrapper .ant-tabs-extra-content {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        -webkit-padding-start: 0;
+        padding-inline-start: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .antd-custom-wrapper {
+        padding-top: 36px;
+        background: none;
+
+    }
+    .market-list .ant-tabs {
+        border: none;
+    }
+}

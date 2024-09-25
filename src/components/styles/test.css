@@ -1,0 +1,217 @@
+.deposit-page-container {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .help-link {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .steps-container {
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 22%;
+  }
+  
+  .step-circle {
+    background-color: #0070f3;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .step-content h3 {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  
+  .step-content p {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .step-divider {
+    width: 20px;
+    height: 2px;
+    background-color: #0070f3;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .deposit-details-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .left-section, .right-section {
+    width: 48%;
+  }
+  
+  .deposit-selection {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .selection-item {
+    margin-bottom: 20px;
+  }
+  
+  .selection-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .check-icon {
+    color: #0070f3;
+    margin-right: 10px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .address-box {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .qr-code {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .address-text {
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .copy-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .verify-address {
+    color: #00aaff;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .address-details {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .reminder-box, .faq-box {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .faq-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .faq-box li {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  
+  a {
+    color: #00aaff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .steps {
+      flex-direction: column;
+    }
+  
+    .step {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .deposit-details-container {
+      flex-direction: column;
+    }
+  
+    .left-section, .right-section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  

@@ -1,0 +1,125 @@
+.id-auth-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .id-auth-container h2 {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #e3e3e3;
+  }
+  
+  .auth-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .auth-box {
+    background-color: #16171a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .auth-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .auth-btn {
+    border-color: transparent;
+    background-color: #4281ff;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .auth-btn:hover {
+    background-color: #689aff !important;
+  }
+
+  .box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .box-header p {
+    font-size: 14px !important;
+    color: #6e7583 !important;
+    margin-top: 10px !important;
+    margin-bottom: -5px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+  .box-divider {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+    margin: 15px 0;
+  }
+  
+  .box-content ul {
+    color: #4b4e52;
+    list-style-type: circle;
+    padding-left: 20px;
+  }
+  
+  .box-content ul li {
+    color: #4b4e52;
+    list-style-type: circle;
+    margin: 5px 0;
+    color: #aaa;
+    font-size: 1rem;
+  }
+  
+  .box-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+  }
+  
+  .recommended {
+    background-color: #2c1f04;
+    color: #dc9a16;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .recommended .anticon {
+    margin-right: 5px;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .auth-box-container {
+      flex-direction: column;
+    }
+  
+    .auth-box {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .box-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

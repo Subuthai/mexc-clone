@@ -1,0 +1,183 @@
+.footer-wrapper{
+    opacity: 1!important;
+    overflow-x: clip;
+    background-color: var(--bg-primary);
+    color: var(--primary-text);
+    padding: 64px 0 64px 24px;
+    border-top: 1px solid var(--divider-primary);
+}
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 0 120px;
+}
+.footer-content-dl{
+    margin-right: 26px;
+    flex-basis: 190px;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.footer-content__title{
+    color: var(--text-tertiary);
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-content__title span{
+    opacity: 0.8;
+}
+.footer-content__body dd{
+    margin-bottom: 10px;
+    line-height: 22px;
+    word-wrap: break-word;
+}
+.footer-content__body{
+    width: 90%;
+}
+.footer-content-dl dd a {
+    display: block;
+    color: var(--text-primary);;
+}
+.footer-media{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.media_mediaItem{
+    position: relative;
+    margin-inline-end: 16px;
+    margin: 4px 8px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.media_mediaItemContent{
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--text-tertiary);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: all .2s ease-in-out;
+}
+
+.footer_toggleBtn__3F0ol{
+    display: none;
+}
+.footer_copyRight__Axy8j{
+    display: none;
+}
+@media (max-width: 760px){
+    .footer_toggleBtn__3F0ol {
+        display: inline-flex;
+    }
+    .footer-content-dl dt {
+        margin-bottom: 30px;
+    }
+    .footer-content__title {
+
+        cursor: pointer;
+        color: var(--text-primary);
+        font-size: 16px;
+    }
+    .footer-content {
+        padding: 32px 16px;
+    }
+
+    .footer-content-dl {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+    .footer-content__body dd {
+        margin-left: 16px;
+        margin-bottom: 30px;
+    }
+    dl:last-child .footer-content__body {
+        display: block;
+    }
+    .footer-content__body {
+        display: none;
+    }
+    .footer-wrapper{
+        padding: 0;
+    }
+    .footer-content__body.active{
+        display: block;
+    }
+    .footer_wrapper__d4BTs>.footer_copyRight__Axy8j {
+        margin: 20px 0 0;
+        text-align: center;
+        display: block;
+    }
+    .footer_copyRight__Axy8j {
+        --text-tertiary:#a2a9b6;
+        margin: 20px 0 0;
+        text-align: center;
+        display: block;
+        color: var(--text-tertiary);
+    }
+}
+@media screen and (max-width: 576px){
+    .footer-media .media_mediaItem .media_mediaItemContent{
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+    }
+    .footer-content__body{
+        width: 100%;
+    }
+}
+.media_mediaItemContent__fW1w2 {
+    position: relative;
+    -webkit-margin-end: 16px;
+    margin-inline-end: 16px;
+    margin: 4px 8px;
+    line-height: 0;
+    cursor: pointer;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--text-tertiary);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: all .2s ease-in-out;
+}
+.media_mediumMenu__Yd4Cp {
+    padding: 16px 0;
+}
+.media_mediumMenu-body__gsxDx {
+    max-height: 336px;
+    overflow: hidden auto;
+}
+.media_mediumMenu-content__tIpYq {
+    display: flex;
+}
+.media_mediumMenu-content__tIpYq ul a {
+    display: block;
+    padding: 6px 16px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.media_mediumMenu-content__tIpYq ul a:active, .media_mediumMenu-content__tIpYq ul a:hover {
+    background-color: var(--fill-card-modal);
+}
