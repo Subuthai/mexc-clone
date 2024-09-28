@@ -6,8 +6,7 @@ const Login = () => {
   const [isEmailOrPhoneExists, setIsEmailOrPhoneExists] = useState(null);
   const [isEmailOrPhoneDisabled, setIsEmailOrPhoneDisabled] = useState(false);
   const [showPasswordInput, setShowPasswordInput] = useState(false);
-  const [showConfirmPasswordInput, setShowConfirmPasswordInput] =
-    useState(false);
+  const [showConfirmPasswordInput, setShowConfirmPasswordInput] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
