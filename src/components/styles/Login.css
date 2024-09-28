@@ -148,6 +148,7 @@
     width: 1px;
     background-color: #222429;
     height: 50%;
+    margin-top: 200px;
     margin-left: 50px;
   }
   
@@ -226,7 +227,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 130px;
+    margin-left: 123px;
   }
   
   .qr-login-button svg {
@@ -313,4 +314,3 @@
       }
       
   }
-  
