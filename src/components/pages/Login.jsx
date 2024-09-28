@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Login.css";
+import Header from '../header/Header';
 
 const Login = () => {
   const [isEmailOrPhoneExists, setIsEmailOrPhoneExists] = useState(null);
@@ -12,11 +13,28 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [buttonText, setButtonText] = useState("Devam Et");
-  const [verificationCode, setVerificationCode] = useState("");
-  const [showVerificationInput, setShowVerificationInput] = useState(false);
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [showContinueButton, setShowContinueButton] = useState(true);
-  const [showVerifyButton, setShowVerifyButton] = useState(false);
+  const [isVerificationMode, setIsVerificationMode] = useState(false);
+  const [codes, setCodes] = useState(["", "", "", "", "", ""]);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handleInputChange = (index, value) => {
+    if (value.length > 1) return;
+
+    const newCodes = [...codes];
+    newCodes[index] = value;
+    setCodes(newCodes);
+
+    if (value && index < codes.length - 1) {
+      document.getElementById(`code-input-${index + 1}`).focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && !codes[index] && index > 0) {
+      document.getElementById(`code-input-${index - 1}`).focus();
+    }
+  };
 
   const handleTabClick = (tab) => {
     setIsMobile(tab === "Mobil");
@@ -36,62 +54,66 @@ const Login = () => {
 
   const handleNext = async () => {
     if (!email) {
+      alert("Lütfen e-posta ya da telefon numaranızı girin.");
       return;
     }
-
-    if (isMobile) {
-      try {
-        setIsEmailOrPhoneDisabled(true);
-        const response = await axios.post("http://localhost:3001/api/send-verification-code", {
-          phoneNumber: email,
-        });
-
-        if (response.data.existingUser) {
-          setShowPasswordInput(true);
-          setShowConfirmPasswordInput(false);
-          setIsEmailOrPhoneExists(true);
-          setShowContinueButton(false);
-        } else {
-          setShowVerificationInput(true);
-          setShowPasswordInput(false);
-          setShowConfirmPasswordInput(false);
-          setShowContinueButton(false);
-          setShowVerifyButton(true);
-        }
-      } catch (error) {
-        console.error("Doğrulama kodu gönderme hatası:", error);
+  
+    try {
+      const response = await axios.post('http://localhost:3001/api/check-email-or-phone', {
+        emailOrPhone: email,
+        isMobile,
+      });
+  
+      if (response.data.exists) {
+        setIsEmailOrPhoneExists(true);
+        setShowPasswordInput(true);
+        setShowConfirmPasswordInput(false);
+        setShowContinueButton(true);
+      } else {
+        setIsEmailOrPhoneExists(false);
+        setShowPasswordInput(true);
+        setShowConfirmPasswordInput(true);
+        setShowContinueButton(true);
       }
-    } else {
+    } catch (error) {
+      console.error('Kullanıcı kontrol hatası:', error);
+      alert("Kullanıcı kontrolünde bir hata oluştu.");
+      return;
+    }
+  
+    if (!isEmailOrPhoneExists && password && confirmPassword) {
+      if (password !== confirmPassword) {
+        alert("Şifreler eşleşmiyor!");
+        return;
+      }
+      setShowPasswordInput(false);
+      setShowConfirmPasswordInput(false);
+      setShowContinueButton(false);
+      setIsVerificationMode(true);
+  
       try {
-        setIsEmailOrPhoneDisabled(true);
-        const response = await axios.post("http://localhost:3001/api/send-email-verification", {
-          email: email,
-        });
-
-        if (response.data.existingUser) {
-          setShowPasswordInput(true);
-          setShowConfirmPasswordInput(false);
-          setIsEmailOrPhoneExists(true);
-          setShowContinueButton(false);
+        if (isMobile) {
+          await axios.post('http://localhost:3001/api/send-verification-code', { phoneNumber: email });
         } else {
-          setShowVerificationInput(true);
-          setIsEmailVerified(false);
-          setShowPasswordInput(false);
-          setShowConfirmPasswordInput(false);
-          setShowContinueButton(false);
-          setShowVerifyButton(true);
+          await axios.post('http://localhost:3001/api/send-email-verification', { email: email });
         }
       } catch (error) {
-        console.error("E-posta doğrulama kodu gönderme hatası:", error);
+        console.error('Doğrulama kodu gönderme hatası:', error);
+        alert("Doğrulama kodu gönderilemedi.");
       }
     }
-  };
-
-  const handleVerificationCodeChange = (e) => {
-    setVerificationCode(e.target.value);
+  
+    if (isEmailOrPhoneExists && showPasswordInput) {
+      if (!password) {
+        alert("Lütfen şifrenizi giriniz.");
+        return;
+      }
+      await handleLogin();
+    }
   };
 
   const handleVerifyCode = async () => {
+    const verificationCode = codes.join("");
     try {
       const response = await axios.post(
         isMobile ? "http://localhost:3001/api/verify-code" : "http://localhost:3001/api/verify-email-code",
@@ -99,26 +121,13 @@ const Login = () => {
           ? { phoneNumber: email, code: verificationCode }
           : { email: email, code: verificationCode }
       );
-
+  
       if (response.data.message === "Doğrulama başarılı") {
-        setShowVerificationInput(false);
-        setShowVerifyButton(false);
-        if (isMobile) {
-          if (response.data.newUser) {
-            setShowPasswordInput(true);
-            setShowConfirmPasswordInput(true);
-          } else {
-            setShowPasswordInput(true);
-            setIsEmailOrPhoneExists(true);
-          }
+        setIsVerificationMode(false);
+        if (!isEmailOrPhoneExists) {
+          await handleRegister();
         } else {
-          setIsEmailVerified(true);
-          if (isEmailOrPhoneExists) {
-            setShowPasswordInput(true);
-          } else {
-            setShowPasswordInput(true);
-            setShowConfirmPasswordInput(true);
-          }
+          await handleLogin();
         }
       } else {
         setIsEmailOrPhoneDisabled(false);
@@ -210,6 +219,127 @@ const Login = () => {
     }
   };
 
+  if (isVerificationMode) {
+    const isButtonDisabled = codes.some((code) => code === "");
+  
+    const verificationType = isMobile ? "SMS" : "E-Posta";
+    const communicationType = isMobile ? phoneNumber || email : email;
+    const instructionText = isMobile
+      ? "cep telefonunuza gönderilen 6 haneli doğrulama kodunu girin"
+      : "e-posta adresinize gönderilen 6 haneli doğrulama kodunu girin";
+  
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "#16171a",
+          color: "#fff",
+          zIndex: 9999,
+        }}
+      >
+        <Header />
+  
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "calc(100vh - 60px)",
+            marginTop: "60px",
+          }}
+        >
+          <div style={{ width: "320px" }}>
+            <h2
+              style={{
+                fontSize: "24px",
+                fontWeight: "600",
+                color: "#fff",
+                marginBottom: "10px",
+                textAlign: "left",
+              }}
+            >
+              {verificationType} Doğrulama Kodu
+            </h2>
+            <p
+              style={{
+                fontSize: "14px",
+                fontWeight: "400",
+                color: "#a0a0a0",
+                textAlign: "left",
+                marginBottom: "20px",
+              }}
+            >
+              Lütfen{" "}
+              <span style={{ color: "#fff", fontWeight: "600" }}>
+                {communicationType}
+              </span>{" "}
+              {instructionText}
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "flex-start",
+                marginBottom: "20px",
+              }}
+            >
+              {codes.map((code, index) => (
+                <input
+                  key={index}
+                  id={`code-input-${index}`}
+                  type="text"
+                  value={code}
+                  onChange={(e) => handleInputChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  maxLength="1"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    fontSize: "24px",
+                    textAlign: "center",
+                    backgroundColor: "#2b2d33",
+                    color: "#fff",
+                    border: "2px solid #555",
+                    borderRadius: "5px",
+                    outline: "none",
+                  }}
+                />
+              ))}
+            </div>
+            <button
+              onClick={handleVerifyCode}
+              disabled={isButtonDisabled}
+              style={{
+                width: "calc(50px * 6 + 50px)",
+                height: "50px",
+                marginBottom: "10px",
+                backgroundColor: isButtonDisabled ? "#222429" : "#007bff",
+                color: "#fff",
+                border: "none",
+                borderRadius: "5px",
+                cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                textAlign: "center",
+                fontSize: "16px",
+              }}
+            >
+              Onayla
+            </button>
+            <p style={{ marginTop: "10px", textAlign: "center" }}>
+              <a href="#" style={{ color: "#007bff", fontSize: "14px" }}>
+                Doğrulama kodunu almadınız mı?
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="login-container">
       <div className="login-content">
@@ -288,17 +418,6 @@ const Login = () => {
             />
           </div>
 
-          {showVerificationInput && (
-            <div className="input-field">
-              <input
-                type="text"
-                placeholder="Doğrulama kodunu girin"
-                value={verificationCode}
-                onChange={handleVerificationCodeChange}
-              />
-            </div>
-          )}
-
           {showPasswordInput && (
             <div className="input-field">
               <input
@@ -331,21 +450,6 @@ const Login = () => {
                 {buttonText}
               </button>
             )}
-
-            {showVerifyButton && (
-              <button className="continue-button" onClick={handleVerifyCode}>
-                Doğrula
-              </button>
-            )}
-
-            {!showContinueButton && !showVerifyButton && (
-              <button
-                className="continue-button"
-                onClick={handleLoginOrRegister}
-              >
-                {isEmailOrPhoneExists ? "Giriş Yap" : "Kayıt Ol"}
-              </button>
-            )}
           </div>
 
           <p className="alternative-login">
@@ -355,7 +459,7 @@ const Login = () => {
           </p>
 
           <div className="social-login">
-            <button className="social-button">
+          <button className="social-button">
               <svg
                 focusable="false"
                 width="1em"
