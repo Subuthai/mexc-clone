@@ -54,6 +54,8 @@ const Login = () => {
           setShowContinueButton(false);
         } else {
           setShowVerificationInput(true);
+          setShowPasswordInput(false);
+          setShowConfirmPasswordInput(false);
           setShowContinueButton(false);
           setShowVerifyButton(true);
         }
@@ -75,6 +77,8 @@ const Login = () => {
         } else {
           setShowVerificationInput(true);
           setIsEmailVerified(false);
+          setShowPasswordInput(false);
+          setShowConfirmPasswordInput(false);
           setShowContinueButton(false);
           setShowVerifyButton(true);
         }
@@ -246,20 +250,20 @@ const Login = () => {
                 fill="currentColor"
               ></path>
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M9.23077 10.7692H0V20H9.23077V10.7692ZM3.07692 16.9231V13.8462H6.15385V16.9231H3.07692Z"
                 fill="currentColor"
               ></path>
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M9.23077 0H0V9.23077H9.23077V0ZM3.07692 6.15385V3.07692H6.15385V6.15385H3.07692Z"
                 fill="currentColor"
               ></path>
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M20 0H10.7692V9.23077H20V0ZM13.8462 6.15385V3.07692H16.9231V6.15385H13.8462Z"
                 fill="currentColor"
               ></path>
