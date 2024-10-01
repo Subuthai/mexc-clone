@@ -731,6 +731,28 @@
     position: relative;
     overflow: hidden;
 }
+
+.video-player_video-player-content__background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-player_video-player-content__background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: center center;
+}
+
 .video-player_video-player-content__Kmbbl {
     position: relative;
     padding-bottom: 56.25%;
