@@ -7,7 +7,7 @@
     height: 60px;
     padding-inline-start: 16px;
     line-height: 60px;
-    background-color: #111214;
+    background-color: #16171a;
     z-index: 999;
     border-bottom: 1px solid var(--divider-primary)
 }
@@ -466,7 +466,7 @@
     font-size: 24px !important;
 }
 .download-dropdown-wrapper {
-    --bg-modal:#18191c;
+    --bg-modal:#1c1d21;
     background-color: var(--bg-modal);
     font-weight: 500;
     padding: 16px;
@@ -675,19 +675,19 @@
 }
 .desktop-nav{
     cursor: pointer;
-    --bg-modal:#18191c;
+    --bg-modal:#1c1d21;
     --fill-page-button-default:#222429;
 }
 .search-dropdown-wrapper{
-    --bg-modal:#18191c;
+    --bg-modal:#1c1d21;
     --bg-secondary: #111214;
     --text-primary:#f2f4f6;
 }
 .language-wrapper-modal{
-    --bg-modal:#18191c;
+    --bg-modal:#1c1d21;
 }
 .dark-mode .ant-modal-body{
-    --bg-modal:#18191c;
+    --bg-modal:#1c1d21;
     --fill-menu-selected:#222429;
 }
 .ant-modal-body{
